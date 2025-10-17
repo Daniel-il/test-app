@@ -91,15 +91,25 @@ export default function UserDetails() {
     <div className={styles['user-details']}>
       <div className={styles['user-details__header']}>
         <Link className={styles['user-details__back']} to="/users">← Пользователи</Link>
-        <h1 className={styles['user-details__title']}>{user.name}</h1>
       </div>
 
       <div className={styles['user-details__content']}>
         <div className={styles['user-details__profile']}>
+          <h1 className={styles['user-details__title']}>Детали пользователя</h1>
           <img className={styles['user-details__avatar']} src={user.avatar} alt="аватар" />
           <div className={styles['user-details__meta']}>
-            <div><strong>ID:</strong> {user.id}</div>
-            <div><strong>Создан:</strong> {formatDate(user.createdAt)}</div>
+            <div className={styles['user-details__field']}>
+              <span className={styles['user-details__field-label']}>Имя пользователя:</span>
+              <span className={styles['user-details__field-value']}>{user.name}</span>
+            </div>
+            <div className={styles['user-details__field']}>
+              <span className={styles['user-details__field-label']}>ID:</span>
+              <span className={styles['user-details__field-value']}>{user.id}</span>
+            </div>
+            <div className={styles['user-details__field']}>
+              <span className={styles['user-details__field-label']}>Создан:</span>
+              <span className={styles['user-details__field-value']}>{formatDate(user.createdAt)}</span>
+            </div>
           </div>
         </div>
 
@@ -108,12 +118,12 @@ export default function UserDetails() {
           {saveError && <div className={styles['user-details__form-error']}>{saveError}</div>}
           {saved && <div className={styles['user-details__form-success']}>Сохранено</div>}
           <label className={styles['user-details__label']}>
-            <span>Имя</span>
-            <input className={styles['user-details__input']} value={name} onChange={(e) => setName(e.target.value)} />
+            <span className={styles['user-details__label-text']}>Имя пользователя</span>
+            <input className={styles['user-details__input']} placeholder="Например: Иван Петров" value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <label className={styles['user-details__label']}>
-            <span>URL аватара</span>
-            <input className={styles['user-details__input']} value={avatar} onChange={(e) => setAvatar(e.target.value)} />
+            <span className={styles['user-details__label-text']}>Ссылка на аватар</span>
+            <input className={styles['user-details__input']} placeholder="https://..." value={avatar} onChange={(e) => setAvatar(e.target.value)} />
           </label>
           <div className={styles['user-details__actions']}>
             <button type="submit" className={styles['user-details__btn']} disabled={saving}>

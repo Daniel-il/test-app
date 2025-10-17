@@ -15,11 +15,11 @@
     color: #2563eb;
   }
 
-  &__title { margin: 0; font-size: 24px; color: White; }
+  &__title { margin: 0 0 20px; font-size: 24px; color: #111827; }
 
   &__content {
-    display: grid;
-    grid-template-columns: 320px 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
   }
 
@@ -39,7 +39,10 @@
     margin-bottom: 10px;
   }
 
-  &__meta { color: #4b5563; font-size: 14px; display: grid; gap: 6px; }
+  &__meta { color: #4b5563; font-size: 14px; display: grid; gap: 8px; }
+  &__field { display: flex; gap: 8px; align-items: baseline; }
+  &__field-label { color: #111827; font-weight: 600; }
+  &__field-value { color: #374151; }
 
   &__form {
     border: 1px solid #e6e8eb;
@@ -51,6 +54,7 @@
   &__subtitle { margin: 0 0 12px; font-size: 18px; color: #111827; }
 
   &__label { display: grid; gap: 6px; margin-bottom: 10px; }
+  &__label-text { font-size: 13px; color: #111827; font-weight: 600; }
   &__input {
     height: 36px;
     padding: 0 10px;
